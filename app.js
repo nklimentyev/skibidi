@@ -207,7 +207,7 @@ document.querySelector('#download-certificate').addEventListener('click',async()
     c.strokeStyle='#1d1d1f';c.lineWidth=2;c.strokeRect(40,40,1520,1020);
     c.strokeStyle='#d2d2d7';c.strokeRect(55,55,1490,990);
     c.textAlign='center';c.fillStyle='#0071e3';c.font='700 26px Manrope, Arial';
-    c.fillText('ДАВЫДОВ / ШКОЛА ЧИСТОЙ ДОСКИ / 916',800,140);
+    c.fillText('Давыдов Inc. / ШКОЛА ЧИСТОЙ ДОСКИ / 916',800,140);
     c.fillStyle='#1d1d1f';c.font='italic 100px Georgia';c.fillText('Сертификат',800,290);
     c.font='500 22px Manrope, Arial';c.fillText('ШУТОЧНЫЙ. ЗАТО КАКОЙ КРАСИВЫЙ.',800,350);
     let fontSize=65;c.font='700 '+fontSize+'px Manrope, Arial';
