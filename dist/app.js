@@ -39,7 +39,7 @@ function drawBoard() {
   canvas.height = Math.round(surfaceHeight * dpr);
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   ctx.globalCompositeOperation = 'source-over';
-  ctx.fillStyle = '#254b3c';
+  ctx.fillStyle = '#17212c';
   ctx.fillRect(0, 0, surfaceWidth, surfaceHeight);
   const scale = surfaceWidth / 450;
   ctx.save();
@@ -85,7 +85,7 @@ function drawBoard() {
 function pointFromEvent(event) {
   // getBoxQuads is not universal; invert the board's small decorative rotation.
   const rect = board.getBoundingClientRect();
-  const angle = 3 * Math.PI / 180;
+  const angle = 0;
   const dx = event.clientX - (rect.left + rect.width / 2);
   const dy = event.clientY - (rect.top + rect.height / 2);
   return {x: dx * Math.cos(angle) - dy * Math.sin(angle) + surfaceWidth / 2,
@@ -203,22 +203,22 @@ document.querySelector('#download-certificate').addEventListener('click',async()
     await document.fonts.ready;
     const certificate=document.createElement('canvas');certificate.width=1600;certificate.height=1100;
     const c=certificate.getContext('2d');
-    c.fillStyle='#f5f3eb';c.fillRect(0,0,1600,1100);
-    c.strokeStyle='#244537';c.lineWidth=2;c.strokeRect(40,40,1520,1020);
-    c.strokeStyle='#d5d8ca';c.strokeRect(55,55,1490,990);
-    c.textAlign='center';c.fillStyle='#ee623e';c.font='700 26px Manrope, Arial';
+    c.fillStyle='#f5f5f7';c.fillRect(0,0,1600,1100);
+    c.strokeStyle='#1d1d1f';c.lineWidth=2;c.strokeRect(40,40,1520,1020);
+    c.strokeStyle='#d2d2d7';c.strokeRect(55,55,1490,990);
+    c.textAlign='center';c.fillStyle='#0071e3';c.font='700 26px Manrope, Arial';
     c.fillText('ДАВЫДОВ / ШКОЛА ЧИСТОЙ ДОСКИ / 916',800,140);
-    c.fillStyle='#244537';c.font='italic 100px Georgia';c.fillText('Сертификат',800,290);
+    c.fillStyle='#1d1d1f';c.font='italic 100px Georgia';c.fillText('Сертификат',800,290);
     c.font='500 22px Manrope, Arial';c.fillText('ШУТОЧНЫЙ. ЗАТО КАКОЙ КРАСИВЫЙ.',800,350);
     let fontSize=65;c.font='700 '+fontSize+'px Manrope, Arial';
     while(c.measureText(enrolledName).width>1340 && fontSize>25){fontSize--;c.font='700 '+fontSize+'px Manrope, Arial';}
     c.fillText(enrolledName,800,480);
-    c.strokeStyle='#ee623e';c.beginPath();c.moveTo(480,520);c.lineTo(1120,520);c.stroke();
+    c.strokeStyle='#0071e3';c.beginPath();c.moveTo(480,520);c.lineTo(1120,520);c.stroke();
     c.font='400 28px Manrope, Arial';c.fillText('успешно вообразил(а) прохождение программы',800,590);
     c.font='600 36px Manrope, Arial';c.fillText('«'+enrolledCourse+'»',800,655);
     c.font='italic 29px Georgia';c.fillText('и получает почётное звание магистра влажных наук.',800,725);
     c.font='500 20px Manrope, Arial';c.fillText('КОМИССИЯ: ВЫ, ТРЯПКА И ОТРАЖЕНИЕ ЛАМПЫ',800,850);
-    c.fillStyle='#6d7469';c.font='400 18px Manrope, Arial';
+    c.fillStyle='#6e6e73';c.font='400 18px Manrope, Arial';
     c.fillText('Пародия. Не является документом об образовании. Не связан с НИУ МАИ.',800,970);
     c.font='400 16px Manrope, Arial';c.fillText('Выдан '+new Date().toLocaleDateString('ru-RU')+' · Реальных занятий и платежей нет.',800,1005);
     const blob=await new Promise(resolve=>certificate.toBlob(resolve,'image/png'));
