@@ -15,9 +15,6 @@ python -m http.server 4173 --directory dist
 ## Публикация в GitHub Pages
 
 Workflow `.github/workflows/pages.yml` проверяет синтаксис JavaScript и публикует содержимое `dist/` после каждого push в `main`. Его также можно запустить вручную из вкладки Actions.
-
-Ожидаемый адрес после успешной публикации: https://nklimentyev.github.io/skibidi/.
-
 Если Pages ещё не настроен и автоматическое включение недоступно, откройте Settings → Pages → Build and deployment → Source и выберите **GitHub Actions**. Затем повторно запустите workflow.
 
 Для Pages из приватного репозитория нужен тариф GitHub, который поддерживает эту возможность. На бесплатном тарифе Pages доступен для публичных репозиториев; видимость репозитория этот проект автоматически не меняет.
