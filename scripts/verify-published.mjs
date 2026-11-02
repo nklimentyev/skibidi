@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 const base = new URL(process.env.SITE_URL);
 if (base.protocol !== 'https:') throw new Error('Expected an HTTPS deployment URL');
 const digest = text => createHash('sha256').update(text).digest('hex');
-const files = ['index.html', 'styles.css', 'app.js', 'cloth-pro.png'];
+const files = ['index.html', 'styles.css', 'app.js', 'cloth-pro.png', 'board-approved.png', 'window-cleaning.png'];
 const expected = new Map(await Promise.all(files.map(async file => [file, digest(await readFile(file))])));
 
 for (let attempt = 1; attempt <= 12; attempt++) {
