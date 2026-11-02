@@ -26,7 +26,12 @@ jobs:
         with:
           node-version: '22'
       - name: Check JavaScript syntax
-        run: node --check dist/app.js
+        run: node --check app.js
+      - name: Prepare website
+        run: |
+          mkdir -p _site
+          cp index.html styles.css app.js favicon.svg cloth-pro.svg .nojekyll _site/
+          cp -R fonts _site/
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
         with:
@@ -34,7 +39,11 @@ jobs:
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: _site
       - name: Deploy website
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify published website over HTTPS
+        env:
+          SITE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: node scripts/verify-published.mjs

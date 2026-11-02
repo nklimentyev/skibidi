@@ -9,14 +9,14 @@
 ## Локальный запуск
 
 ```sh
-python -m http.server 4173 --directory dist
+python -m http.server 4173
 ```
 
 Откройте http://localhost:4173. Установка зависимостей и сборка не нужны.
 
 ## Публикация в GitHub Pages
 
-Workflow `.github/workflows/pages.yml` проверяет синтаксис JavaScript и публикует содержимое `dist/` после каждого push в `main`. Его также можно запустить вручную из вкладки Actions.
+Workflow `.github/workflows/pages.yml` проверяет синтаксис JavaScript и публикует сайт из корня репозитория после каждого push в `main`. Его также можно запустить вручную из вкладки Actions.
 
 Если Pages ещё не настроен и автоматическое включение недоступно, откройте Settings → Pages → Build and deployment → Source и выберите **GitHub Actions**. Затем повторно запустите workflow.
 
@@ -24,11 +24,13 @@ Workflow `.github/workflows/pages.yml` проверяет синтаксис Jav
 
 ## Файлы
 
-- `dist/index.html` — содержание сайта.
-- `dist/styles.css` — оформление и адаптивная вёрстка.
-- `dist/app.js` — интерактивная доска, форма и сертификат.
-- `dist/fonts/` — локальные файлы шрифта Manrope и его лицензия SIL OFL 1.1.
+- `index.html` — содержание сайта.
+- `styles.css` — оформление и адаптивная вёрстка.
+- `app.js` — интерактивная доска, форма и сертификат.
+- `fonts/` — локальные файлы шрифта Manrope и его лицензия SIL OFL 1.1.
 
 Все пути к ресурсам относительные: сайт работает и в подпапке GitHub Pages `/skibidi/`.
 
-Корневой `index.html` открывает `dist/`, если в Pages включена публикация из ветки. Workflow GitHub Actions публикует содержимое `dist/` непосредственно в корень сайта.
+В корне репозитория лежит сам сайт. Это обеспечивает одинаковую страницу при публикации через GitHub Actions и из ветки main. README не используется как главная страница.
+
+После deployment workflow проверяет опубликованные HTML, CSS и JavaScript по HTTPS.
